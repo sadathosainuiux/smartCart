@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCart - Our Products</title>
+    <!-- Tailwind CSS and DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5', // Indigo-600
+                        secondary: '#10B981', // Emerald-500
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans antialiased text-gray-800 bg-white">
+
+    <!-- Navbar -->
+    <div class="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-4 md:px-8">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h8m-8 6h16" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="btn btn-ghost text-2xl font-bold text-primary">SwiftCart</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                <li><a href="index.html" class="hover:text-primary">Home</a></li>
+                <li><a href="products.html" class="text-primary font-bold">Products</a></li>
+                <li><a href="#" class="hover:text-primary">About</a></li>
+                <li><a href="#" class="hover:text-primary">Contact</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <div class="indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="badge badge-sm indicator-item badge-primary">0</span>
+                    </div>
+                </div>
+                <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    <div class="card-body">
+                        <span class="font-bold text-lg">0 Items</span>
+                        <span class="text-info">Subtotal: $0</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-block">View cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a class="btn btn-primary ml-4 text-white">Login</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8">Our Products</h1>
+
+        <!-- Filter Section -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="filter-container">
+            <button class="btn btn-sm btn-primary text-white filter-btn" data-category="all">All</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-category="electronics">Electronics</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-category="jewelery">Jewelery</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-category="men's clothing">Men's Clothing</button>
+            <button class="btn btn-sm btn-outline filter-btn" data-category="women's clothing">Women's Clothing</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <!-- Loading Skeleton -->
+            <div class="skeleton h-96 w-full"></div>
+            <div class="skeleton h-96 w-full"></div>
+            <div class="skeleton h-96 w-full"></div>
+            <div class="skeleton h-96 w-full"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer p-10 bg-gray-800 text-gray-300 mt-auto">
+        <aside>
+            <div class="text-3xl font-bold text-white mb-2">SwiftCart</div>
+            <p>Your one-stop shop for all your fashion<br>and lifestyle needs. Quality products, fast<br>delivery, and
+                excellent support.</p>
+            <p class="mt-4 text-sm">© 2025 SwiftCart, Inc. All rights reserved.</p>
+        </aside>
+        <nav>
+            <h6 class="footer-title text-white opacity-100">Quick Links</h6>
+            <a href="index.html" class="link link-hover">Home</a>
+            <a href="products.html" class="link link-hover">Products</a>
+            <a class="link link-hover">About</a>
+            <a class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-white opacity-100">Support</h6>
+            <a class="link link-hover">FAQ</a>
+            <a class="link link-hover">Shipping</a>
+            <a class="link link-hover">Returns</a>
+            <a class="link link-hover">Privacy Policy</a>
+        </nav>
+        <form>
+            <h6 class="footer-title text-white opacity-100">Subscribe to our newsletter</h6>
+            <fieldset class="form-control w-80">
+                <label class="label">
+                    <span class="label-text text-gray-400">The latest news, articles, and resources, sent to your inbox
+                        weekly.</span>
+                </label>
+                <div class="join">
+                    <input type="text" placeholder="Enter your email"
+                        class="input input-bordered join-item w-full text-gray-800" />
+                    <button class="btn btn-primary join-item">Subscribe</button>
+                </div>
+            </fieldset>
+        </form>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

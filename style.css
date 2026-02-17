@@ -1,14 +1,10 @@
-/* Custom styles to supplement Tailwind */
+
 body {
     font-family: 'Inter', sans-serif;
 }
-
-/* Ensure smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
-
-/* Optional: Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
