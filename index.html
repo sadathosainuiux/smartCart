@@ -19,8 +19,8 @@
                         sans: ['Inter', 'sans-serif'],
                     },
                     colors: {
-                        primary: '#4F46E5', 
-                        secondary: '#10B981', 
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
                     }
                 }
             }
@@ -29,365 +29,406 @@
 </head>
 
 <body class="font-sans antialiased text-gray-800 bg-white">
+    <div class="drawer drawer-end">
+        <input id="cart-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
 
-    <!-- Navbar -->
-    <div class="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-4 md:px-8">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h8m-8 6h16" />
-                    </svg>
+            <!-- Navbar -->
+            <div class="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-4 md:px-8">
+                <div class="navbar-start">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h8m-8 6h16" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0"
+                            class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <li><a href="#" class="active">Home</a></li>
+                            <li><a href="products.html">Products</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn btn-ghost text-2xl font-bold text-primary">SwiftCart</a>
                 </div>
-                <ul tabindex="0"
-                    class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <a class="btn btn-ghost text-2xl font-bold text-primary">SwiftCart</a>
-        </div>
-        <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1 font-medium">
-                <li><a href="#" class="text-primary">Home</a></li>
-                <li><a href="
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 font-medium">
+                        <li><a href="#" class="text-primary">Home</a></li>
+                        <li><a href="
 products.html">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-        <div class="navbar-end">
-            <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-                    <div class="indicator">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        <span class="badge badge-sm indicator-item badge-primary">0</span>
-                    </div>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
                 </div>
-                <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                    <div class="card-body">
-                        <span class="font-bold text-lg">0 Items</span>
-                        <span class="text-info">Subtotal: $0</span>
-                        <div class="card-actions">
-                            <button class="btn btn-primary btn-block">View cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <a class="btn btn-primary ml-4 text-white">Login</a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <div class="hero min-h-[600px]"
-        style="background-image: url('assets/banner-image.png'); background-size: cover; background-position: center;">
-        <div class="hero-overlay bg-opacity-40 bg-gray-900"></div>
-        <div class="hero-content text-center text-neutral-content">
-            <div class="max-w-2xl px-4">
-                <h1 class="mb-5 text-5xl md:text-6xl font-bold text-white leading-tight">Best Collection For You</h1>
-                <p class="mb-8 text-lg text-gray-200">Discover the latest trends in fashion, electronics, and more. Shop
-                    with confidence and style at SwiftCart.</p>
-                <button class="btn btn-primary btn-lg text-white border-none hover:bg-indigo-700 px-8">Shop Now</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Features Section -->
-    <div class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Why Choose Us</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">We provide the best shopping experience with top-notch
-                    services.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Feature 1 -->
-                <div
-                    class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                    <div class="card-body items-center text-center">
-                        <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Fast Delivery</h3>
-                        <p class="text-gray-500 text-sm">Get your orders delivered to your doorstep quickly and
-                            efficiently.</p>
-                    </div>
-                </div>
-                <!-- Feature 2 -->
-                <div
-                    class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                    <div class="card-body items-center text-center">
-                        <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                        </div>
-                        <h3 class="card-title">24/7 Support</h3>
-                        <p class="text-gray-500 text-sm">Our support team is available around the clock to assist you.
-                        </p>
-                    </div>
-                </div>
-                <!-- Feature 3 -->
-                <div
-                    class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                    <div class="card-body items-center text-center">
-                        <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Secure Payment</h3>
-                        <p class="text-gray-500 text-sm">Experience safe and secure transactions with our encrypted
-                            payment systems.</p>
-                    </div>
-                </div>
-                <!-- Feature 4 -->
-                <div
-                    class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-                    <div class="card-body items-center text-center">
-                        <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                            </svg>
-                        </div>
-                        <h3 class="card-title">Easy Returns</h3>
-                        <p class="text-gray-500 text-sm">Not satisfied? Return your products easily within 30 days.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Trending Now Section -->
-    <div class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-12">Trending Now</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div
-                    class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                    <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
-                        <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Backpack"
-                            class="h-48 object-contain" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex justify-between items-start">
-                            <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
-                            <div class="text-yellow-500 text-sm flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                3.9 (120)
-                            </div>
-                        </div>
-                        <h2 class="card-title text-base mt-2">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h2>
-                        <p class="font-bold text-xl mt-2">$109.95</p>
-                        <div class="card-actions justify-between items-center mt-4">
-                            <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                Details
-                            </button>
-                            <button class="btn btn-sm btn-primary w-[45%] text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
+                <div class="navbar-end">
+                    <div class="dropdown dropdown-end">
+                        <div role="button" class="btn btn-ghost btn-circle">
+                            <label for="cart-drawer" class="indicator cursor-pointer">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                                 </svg>
-                                Add
-                            </button>
+                                <span class="badge badge-sm indicator-item badge-primary" id="cart-count">0</span>
+                            </label>
+                        </div>
+                        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                            <div class="card-body">
+                                <span class="font-bold text-lg" id="dropdown-items-count">0 Items</span>
+                                <span class="text-info" id="dropdown-subtotal">Subtotal: $0</span>
+                                <div class="card-actions">
+                                    <label for="cart-drawer" class="btn btn-primary btn-block text-white">View
+                                        cart</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary ml-4 text-white">Login</a>
+                </div>
+            </div>
+
+            <!-- Hero Section -->
+            <div class="hero min-h-[600px]"
+                style="background-image: url('assets/banner-image.png'); background-size: cover; background-position: center;">
+                <div class="hero-overlay bg-opacity-40 bg-gray-900"></div>
+                <div class="hero-content text-center text-neutral-content">
+                    <div class="max-w-2xl px-4">
+                        <h1 class="mb-5 text-5xl md:text-6xl font-bold text-white leading-tight">Best Collection For You
+                        </h1>
+                        <p class="mb-8 text-lg text-gray-200">Discover the latest trends in fashion, electronics, and
+                            more. Shop
+                            with confidence and style at SwiftCart.</p>
+                        <button class="btn btn-primary btn-lg text-white border-none hover:bg-indigo-700 px-8">Shop
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features Section -->
+            <div class="py-20 bg-gray-50">
+                <div class="container mx-auto px-4">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold mb-4">Why Choose Us</h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto">We provide the best shopping experience with
+                            top-notch
+                            services.</p>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <!-- Feature 1 -->
+                        <div
+                            class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                            <div class="card-body items-center text-center">
+                                <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Fast Delivery</h3>
+                                <p class="text-gray-500 text-sm">Get your orders delivered to your doorstep quickly and
+                                    efficiently.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div
+                            class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                            <div class="card-body items-center text-center">
+                                <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">24/7 Support</h3>
+                                <p class="text-gray-500 text-sm">Our support team is available around the clock to
+                                    assist you.
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div
+                            class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                            <div class="card-body items-center text-center">
+                                <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Secure Payment</h3>
+                                <p class="text-gray-500 text-sm">Experience safe and secure transactions with our
+                                    encrypted
+                                    payment systems.</p>
+                            </div>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div
+                            class="card bg-base-100 shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+                            <div class="card-body items-center text-center">
+                                <div class="p-4 bg-indigo-50 rounded-full mb-2 text-primary">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                </div>
+                                <h3 class="card-title">Easy Returns</h3>
+                                <p class="text-gray-500 text-sm">Not satisfied? Return your products easily within 30
+                                    days.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Product 2 -->
-                <div
-                    class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                    <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
-                        <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="T-Shirt"
-                            class="h-48 object-contain" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex justify-between items-start">
-                            <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
-                            <div class="text-yellow-500 text-sm flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                4.1 (259)
+            <!-- Trending Now Section -->
+            <div class="py-20">
+                <div class="container mx-auto px-4">
+                    <h2 class="text-3xl font-bold mb-12">Trending Now</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Product 1 -->
+                        <div
+                            class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                            <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
+                                <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="Backpack"
+                                    class="h-48 object-contain" />
+                            </figure>
+                            <div class="card-body">
+                                <div class="flex justify-between items-start">
+                                    <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
+                                    <div class="text-yellow-500 text-sm flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        3.9 (120)
+                                    </div>
+                                </div>
+                                <h2 class="card-title text-base mt-2">Fjallraven - Foldsack No. 1 Backpack, Fits 15
+                                    Laptops</h2>
+                                <p class="font-bold text-xl mt-2">$109.95</p>
+                                <div class="card-actions justify-between items-center mt-4">
+                                    <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                        Details
+                                    </button>
+                                    <button class="btn btn-sm btn-primary w-[45%] text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        Add
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                        <h2 class="card-title text-base mt-2">Mens Casual Premium Slim Fit T-Shirts</h2>
-                        <p class="font-bold text-xl mt-2">$22.3</p>
-                        <div class="card-actions justify-between items-center mt-4">
-                            <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                Details
-                            </button>
-                            <button class="btn btn-sm btn-primary w-[45%] text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                                Add
-                            </button>
+
+                        <!-- Product 2 -->
+                        <div
+                            class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                            <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
+                                <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+                                    alt="T-Shirt" class="h-48 object-contain" />
+                            </figure>
+                            <div class="card-body">
+                                <div class="flex justify-between items-start">
+                                    <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
+                                    <div class="text-yellow-500 text-sm flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        4.1 (259)
+                                    </div>
+                                </div>
+                                <h2 class="card-title text-base mt-2">Mens Casual Premium Slim Fit T-Shirts</h2>
+                                <p class="font-bold text-xl mt-2">$22.3</p>
+                                <div class="card-actions justify-between items-center mt-4">
+                                    <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                        Details
+                                    </button>
+                                    <button class="btn btn-sm btn-primary w-[45%] text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div
+                            class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
+                            <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
+                                <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="Jacket"
+                                    class="h-48 object-contain" />
+                            </figure>
+                            <div class="card-body">
+                                <div class="flex justify-between items-start">
+                                    <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
+                                    <div class="text-yellow-500 text-sm flex items-center gap-1">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                        4.7 (500)
+                                    </div>
+                                </div>
+                                <h2 class="card-title text-base mt-2">Mens Cotton Jacket</h2>
+                                <p class="font-bold text-xl mt-2">$55.99</p>
+                                <div class="card-actions justify-between items-center mt-4">
+                                    <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                        Details
+                                    </button>
+                                    <button class="btn btn-sm btn-primary w-[45%] text-white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                                        </svg>
+                                        Add
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Product 3 -->
-                <div
-                    class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100">
-                    <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
-                        <img src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg" alt="Jacket"
-                            class="h-48 object-contain" />
-                    </figure>
-                    <div class="card-body">
-                        <div class="flex justify-between items-start">
-                            <div class="badge badge-primary badge-outline text-xs">Men's Clothing</div>
-                            <div class="text-yellow-500 text-sm flex items-center gap-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                </svg>
-                                4.7 (500)
-                            </div>
+            <!-- Footer -->
+            <footer class="footer p-10 bg-gray-800 text-gray-300">
+                <aside>
+                    <div class="text-3xl font-bold text-white mb-2">SwiftCart</div>
+                    <p>Your one-stop shop for all your fashion<br>and lifestyle needs. Quality products,
+                        fast<br>delivery, and
+                        excellent support.</p>
+                    <p class="mt-4 text-sm">© 2025 SwiftCart, Inc. All rights reserved.</p>
+                </aside>
+                <nav>
+                    <h6 class="footer-title text-white opacity-100">Quick Links</h6>
+                    <a class="link link-hover">Home</a>
+                    <a class="link link-hover" href="products.html">Products</a>
+                    <a class="link link-hover">About</a>
+                    <a class="link link-hover">Contact</a>
+                </nav>
+                <nav>
+                    <h6 class="footer-title text-white opacity-100">Support</h6>
+                    <a class="link link-hover">FAQ</a>
+                    <a class="link link-hover">Shipping</a>
+                    <a class="link link-hover">Returns</a>
+                    <a class="link link-hover">Privacy Policy</a>
+                </nav>
+                <form>
+                    <h6 class="footer-title text-white opacity-100">Subscribe to our newsletter</h6>
+                    <fieldset class="form-control w-80">
+                        <label class="label">
+                            <span class="label-text text-gray-400">The latest news, articles, and resources, sent to
+                                your inbox
+                                weekly.</span>
+                        </label>
+                        <div class="join">
+                            <input type="text" placeholder="Enter your email"
+                                class="input input-bordered join-item w-full text-gray-800" />
+                            <button class="btn btn-primary join-item">Subscribe</button>
                         </div>
-                        <h2 class="card-title text-base mt-2">Mens Cotton Jacket</h2>
-                        <p class="font-bold text-xl mt-2">$55.99</p>
-                        <div class="card-actions justify-between items-center mt-4">
-                            <button class="btn btn-sm btn-outline btn-ghost w-[45%]">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
-                                Details
-                            </button>
-                            <button class="btn btn-sm btn-primary w-[45%] text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                </svg>
-                                Add
-                            </button>
-                        </div>
+                    </fieldset>
+                    <div class="flex gap-4 mt-6">
+                        <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-facebook">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-twitter">
+                                <path
+                                    d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                                </path>
+                            </svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-instagram">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-linkedin">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                                </path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-mail">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg></a>
                     </div>
+                    </aside>
+            </footer>
+
+        </div>
+        <div class="drawer-side z-50">
+            <label for="cart-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+            <div class="menu p-4 w-96 min-h-full bg-base-100 text-base-content flex flex-col">
+                <h2 class="text-2xl font-bold mb-4 border-b pb-2">Shopping Cart</h2>
+                <div id="cart-items" class="flex-grow overflow-y-auto space-y-4">
+                    <!-- Cart Items Injected Here -->
+                    <div class="text-center text-gray-500 mt-10">Your cart is empty.</div>
+                </div>
+                <div class="border-t pt-4 mt-4">
+                    <div class="flex justify-between text-xl font-bold mb-4">
+                        <span>Total:</span>
+                        <span id="cart-total">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary btn-block text-white">Checkout</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer p-10 bg-gray-800 text-gray-300">
-        <aside>
-            <div class="text-3xl font-bold text-white mb-2">SwiftCart</div>
-            <p>Your one-stop shop for all your fashion<br>and lifestyle needs. Quality products, fast<br>delivery, and
-                excellent support.</p>
-            <p class="mt-4 text-sm">© 2025 SwiftCart, Inc. All rights reserved.</p>
-        </aside>
-        <nav>
-            <h6 class="footer-title text-white opacity-100">Quick Links</h6>
-            <a class="link link-hover">Home</a>
-            <a class="link link-hover" href="products.html">Products</a>
-            <a class="link link-hover">About</a>
-            <a class="link link-hover">Contact</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title text-white opacity-100">Support</h6>
-            <a class="link link-hover">FAQ</a>
-            <a class="link link-hover">Shipping</a>
-            <a class="link link-hover">Returns</a>
-            <a class="link link-hover">Privacy Policy</a>
-        </nav>
-        <form>
-            <h6 class="footer-title text-white opacity-100">Subscribe to our newsletter</h6>
-            <fieldset class="form-control w-80">
-                <label class="label">
-                    <span class="label-text text-gray-400">The latest news, articles, and resources, sent to your inbox
-                        weekly.</span>
-                </label>
-                <div class="join">
-                    <input type="text" placeholder="Enter your email"
-                        class="input input-bordered join-item w-full text-gray-800" />
-                    <button class="btn btn-primary join-item">Subscribe</button>
-                </div>
-            </fieldset>
-            <div class="flex gap-4 mt-6">
-                <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
-                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg></a>
-                <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
-                        <path
-                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-                        </path>
-                    </svg></a>
-                <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg></a>
-                <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg></a>
-                <a href="#" class="hover:text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg"
-                        width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg></a>
-            </div>
-            </aside>
-    </footer>
-
 </body>
 
 </html>
