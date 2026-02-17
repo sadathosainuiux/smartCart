@@ -12,9 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const productGrid = document.getElementById('product-grid');
     if (productGrid) {
         initializeProductPage();
-    } else {
-        // We are on home page, maybe load trending products dynamically?
-        // For now, let's just make sure global listeners work
+    }
+
+    // Check if we're on home page and load trending products
+    const trendingHome = document.getElementById('trending-home');
+    if (trendingHome) {
+        loadHomeTrendingProducts();
     }
 
     // Global Event Listeners
@@ -153,12 +156,94 @@ function renderProducts(products) {
     });
 }
 
+// --- Home Page Trending Products ---
+
+async function loadHomeTrendingProducts() {
+    const container = document.getElementById('trending-home');
+    if (!container) return;
+
+    try {
+        const response = await fetch('https://fakestoreapi.com/products?limit=3');
+        const products = await response.json();
+
+        container.innerHTML = '';
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-100';
+
+            card.innerHTML = `
+                <figure class="px-5 pt-5 bg-gray-50 h-64 flex items-center justify-center">
+                    <img src="${product.image}" alt="${product.title}" class="h-48 object-contain" />
+                </figure>
+                <div class="card-body">
+                    <div class="flex justify-between items-start">
+                        <div class="badge badge-primary badge-outline text-xs">${product.category}</div>
+                        <div class="text-yellow-500 text-sm flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                            ${product.rating?.rate || 'N/A'} (${product.rating?.count || 0})
+                        </div>
+                    </div>
+                    <h2 class="card-title text-base mt-2">${product.title}</h2>
+                    <p class="font-bold text-xl mt-2">$${product.price}</p>
+                    <div class="card-actions justify-between items-center mt-4">
+                        <button class="btn btn-sm btn-outline btn-ghost w-[45%]" onclick="openProductModal(${product.id})">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                            Details
+                        </button>
+                        <button class="btn btn-sm btn-primary w-[45%] text-white" onclick="addToCart(${product.id}, event)">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            Add
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error loading trending products:', error);
+        container.innerHTML = '<div class="col-span-full text-center text-gray-500">Unable to load trending products.</div>';
+    }
+}
+
+function renderTrendingProducts(products, container) {
+    container.innerHTML = '';
+
+    products.forEach(product => {
+        const card = document.createElement('div');
+        card.className = 'card bg-base-100 shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-primary/20 cursor-pointer';
+        card.onclick = () => openProductModal(product.id);
+
+        card.innerHTML = `
+            <figure class="px-4 pt-4 bg-gradient-to-br from-primary/5 to-secondary/5 h-48 flex items-center justify-center">
+                <img src="${product.image}" alt="${product.title}" class="h-36 object-contain" />
+            </figure>
+            <div class="card-body p-4">
+                <div class="badge badge-secondary badge-sm mb-2">Trending</div>
+                <h3 class="font-bold text-sm line-clamp-2 mb-2" title="${product.title}">${product.title}</h3>
+                <div class="flex justify-between items-center">
+                    <span class="text-xl font-bold text-primary">$${product.price}</span>
+                    <button class="btn btn-primary btn-sm text-white" onclick="event.stopPropagation(); addToCart(${product.id}, event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        `;
+        container.appendChild(card);
+    });
+}
+
 // --- Cart Logic ---
 
 function setupGlobalListeners() {
-    // We can rely on inline onclicks for simplicity in this generated code, 
-    // or add delegation here. Sticking to inline calls (onclick="...") for explicit actions 
-    // to avoid event bubbling issues with the card click vs button click.
 }
 
 window.addToCart = async function (productId, event) {
@@ -178,8 +263,6 @@ window.addToCart = async function (productId, event) {
 
     // Find product - check allProducts first
     let product = allProducts.find(p => p.id === productId);
-
-    // If not in allProducts (e.g. on home page or filtered view edge case), fetch it
     if (!product) {
         try {
             const resp = await fetch(`https://fakestoreapi.com/products/${productId}`);
@@ -235,14 +318,20 @@ function updateCartUI() {
             cartItemsContainer.innerHTML = '<div class="text-center text-gray-500 mt-10">Your cart is empty.</div>';
         } else {
             cartItemsContainer.innerHTML = cart.map(item => `
-                <div class="flex gap-4 items-center bg-base-200 p-3 rounded-lg">
-                    <img src="${item.image}" alt="${item.title}" class="w-12 h-12 object-contain bg-white rounded p-1">
-                    <div class="flex-grow min-w-0">
-                        <h4 class="font-bold text-sm truncate" title="${item.title}">${item.title}</h4>
-                        <div class="text-xs text-gray-500">$${item.price} x ${item.quantity}</div>
+                <div class="flex gap-3 items-start bg-base-200 p-3 rounded-lg relative hover:bg-base-300 transition-colors">
+                    <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-contain bg-white rounded p-1 flex-shrink-0">
+                    <div class="flex-grow min-w-0 pr-8">
+                        <h4 class="font-bold text-sm line-clamp-2 mb-1" title="${item.title}">${item.title}</h4>
+                        <div class="text-xs text-gray-500 mb-1">$${item.price} × ${item.quantity}</div>
+                        <div class="font-bold text-primary text-sm">$${(item.price * item.quantity).toFixed(2)}</div>
                     </div>
-                    <div class="font-bold text-primary">$${(item.price * item.quantity).toFixed(2)}</div>
-                    <button class="btn btn-ghost btn-xs text-error" onclick="removeFromCart(${item.id})">✕</button>
+                    <button class="btn btn-circle btn-xs btn-error text-white absolute top-2 right-2 hover:btn-error" 
+                            onclick="removeFromCart(${item.id})" 
+                            title="Remove from cart">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
             `).join('');
         }
